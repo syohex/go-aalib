@@ -29,8 +29,19 @@ import (
 	"errors"
 	"image"
 	"image/color"
-	"unsafe"
 	"strings"
+	"unsafe"
+)
+
+const (
+	AA_NORMAL_MASK   int = 1
+	AA_DIM_MASK      int = 2
+	AA_BOLD_MASK     int = 4
+	AA_BOLDFONT_MASK int = 8
+	AA_REVERSE_MASK  int = 16
+	AA_ALL           int = 128
+	AA_EIGHT         int = 256
+	AA_EXTENDED      int = (AA_ALL | AA_EIGHT)
 )
 
 const (
@@ -97,7 +108,7 @@ func (h *Handle) PutPixel(x int, y int, pixelColor color.Color) {
 func (h *Handle) Puts(x int, y int, attr int, str string) {
 	chars := C.CString(str)
 	defer C.free(unsafe.Pointer(chars))
-	C.aa_puts(h.context, C.int(x), C.int(y), uint32(attr) , chars)
+	C.aa_puts(h.context, C.int(x), C.int(y), uint32(attr), chars)
 }
 
 func (h *Handle) Render(rp *RenderParams, x1 int, y1 int, x2 int, y2 int) {
