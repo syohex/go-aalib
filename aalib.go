@@ -123,13 +123,13 @@ func (handle *Handle) insertNewLine(buf string) string {
 	return strings.Join(strs, "\n")
 }
 
-func (h *Handle) resize() error {
+func (h *Handle) Resize() (int, error) {
 	ret := C.aa_resize(h.context)
 	if ret == 0 {
-		return errors.New("no resize")
+		return -1, errors.New("no resize")
 	}
 
-	return nil
+	return int(ret), nil
 }
 
 func (h *Handle) Flush() {
