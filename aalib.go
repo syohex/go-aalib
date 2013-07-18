@@ -34,14 +34,14 @@ import (
 )
 
 const (
-	AA_NORMAL_MASK   int = 1
-	AA_DIM_MASK      int = 2
-	AA_BOLD_MASK     int = 4
-	AA_BOLDFONT_MASK int = 8
-	AA_REVERSE_MASK  int = 16
-	AA_ALL           int = 128
-	AA_EIGHT         int = 256
-	AA_EXTENDED      int = (AA_ALL | AA_EIGHT)
+	AA_NORMAL_MASK   int = C.AA_NORMAL_MASK
+	AA_DIM_MASK      int = C.AA_DIM_MASK
+	AA_BOLD_MASK     int = C.AA_BOLD_MASK
+	AA_BOLDFONT_MASK int = C.AA_BOLDFONT_MASK
+	AA_REVERSE_MASK  int = C.AA_REVERSE_MASK
+	AA_ALL           int = C.AA_ALL
+	AA_EIGHT         int = C.AA_EIGHT
+	AA_EXTENDED      int = (C.AA_ALL | C.AA_EIGHT)
 )
 
 const (
