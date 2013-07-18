@@ -28,7 +28,7 @@ func main() {
 		os.Exit(1)
 	}
 
-	handle, _ := aalib.Init(80, 60, aalib.AA_REVERSE)
+	handle, _ := aalib.Init(80, 60, aalib.AA_NORMAL_MASK)
 	handle.PutImage(goPng)
 	handle.Render(nil, 0, 0, 96, 96)
 	aaStr := handle.Text()
